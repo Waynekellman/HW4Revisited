@@ -42,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         play = (Button) findViewById(R.id.play);
         score = (TextView) findViewById(R.id.score);
         questionText = (TextView) findViewById(R.id.question);
+        ans1.setVisibility(View.INVISIBLE);
+        ans2.setVisibility(View.INVISIBLE);
+        ans3.setVisibility(View.INVISIBLE);
+        ans4.setVisibility(View.INVISIBLE);
     }
 
     public void buttonPress(View view){
