@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private List<String> questionList;
     private String answer;
     private int currentScore = 0;
+    private boolean toggle = false;
 
 
 
@@ -48,18 +49,21 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.play:
                 setViewTexts();
+                toggleVisibility();
                 break;
             case R.id.ans_1:
                 if (answer.equals(ans1.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
                     increaseScore();
                 }
+                setViewTexts();
                 break;
             case R.id.ans_2:
                 if (answer.equals(ans2.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
                     increaseScore();
                 }
+                setViewTexts();
                 break;
 
             case R.id.ans_3:
@@ -67,15 +71,25 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
                     increaseScore();
                 }
+                setViewTexts();
                 break;
             case R.id.ans_4:
                 if (answer.equals(ans4.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
                     increaseScore();
                 }
+                setViewTexts();
                 break;
 
         }
+    }
+
+    public void toggleVisibility(){
+        play.setVisibility(View.INVISIBLE);
+        ans1.setVisibility(View.VISIBLE);
+        ans2.setVisibility(View.VISIBLE);
+        ans3.setVisibility(View.VISIBLE);
+        ans4.setVisibility(View.VISIBLE);
     }
 
     public void increaseScore(){
