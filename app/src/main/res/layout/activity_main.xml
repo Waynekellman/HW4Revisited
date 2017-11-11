@@ -43,4 +43,11 @@
         android:text="Play"
         android:onClick="buttonPress"/>
 
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="Score = 0" />
+
 </LinearLayout>
