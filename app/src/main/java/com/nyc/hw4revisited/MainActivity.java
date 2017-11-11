@@ -8,6 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -106,10 +108,20 @@ public class MainActivity extends AppCompatActivity {
         Random random = new Random();
         int quizNum = random.nextInt(questionKey.size());
         questionText.setText(questionList.get(quizNum));
-        ans1.setText(questionKey.get(questionList.get(quizNum)).get(0));
-        ans2.setText(questionKey.get(questionList.get(quizNum)).get(1));
-        ans3.setText(questionKey.get(questionList.get(quizNum)).get(2));
-        ans4.setText(questionKey.get(questionList.get(quizNum)).get(3));
+
+        Integer[] arr = new Integer[4];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
+        }
+        Collections.shuffle(Arrays.asList(arr));
+        int ansOne = arr[0];
+        int ansTwo = arr[1];
+        int ansThree = arr[2];
+        int ansFour = arr[3];
+        ans1.setText(questionKey.get(questionList.get(quizNum)).get(ansOne));
+        ans2.setText(questionKey.get(questionList.get(quizNum)).get(ansTwo));
+        ans3.setText(questionKey.get(questionList.get(quizNum)).get(ansThree));
+        ans4.setText(questionKey.get(questionList.get(quizNum)).get(ansFour));
         answer = questionKey.get(questionList.get(quizNum)).get(4);
     }
 
