@@ -15,12 +15,13 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button ans1,ans2,ans3,ans4;
-    private TextView questionText;
+    private Button ans1,ans2,ans3,ans4,play;
+    private TextView questionText,score;
     private HashMap<String,List<String>> questionKey = new HashMap<>();
     private List<String> answers1,answers2,answers3,answers4;
     private List<String> questionList;
     private String answer;
+    private int currentScore = 0;
 
 
 
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         ans2 = (Button) findViewById(R.id.ans_2);
         ans3 = (Button) findViewById(R.id.ans_3);
         ans4 = (Button) findViewById(R.id.ans_4);
+        play = (Button) findViewById(R.id.play);
+        score = (TextView) findViewById(R.id.score);
         questionText = (TextView) findViewById(R.id.question);
     }
 
@@ -49,26 +52,36 @@ public class MainActivity extends AppCompatActivity {
             case R.id.ans_1:
                 if (answer.equals(ans1.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
+                    increaseScore();
                 }
                 break;
             case R.id.ans_2:
                 if (answer.equals(ans2.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
+                    increaseScore();
                 }
                 break;
 
             case R.id.ans_3:
                 if (answer.equals(ans3.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
+                    increaseScore();
                 }
                 break;
             case R.id.ans_4:
                 if (answer.equals(ans4.getText().toString())){
                     Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT).show();
+                    increaseScore();
                 }
                 break;
 
         }
+    }
+
+    public void increaseScore(){
+        currentScore++;
+        String update = "Score = " + String.valueOf(currentScore);
+        score.setText(update);
     }
 
     public void setViewTexts(){
